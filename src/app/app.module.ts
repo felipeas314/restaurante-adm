@@ -7,22 +7,18 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LoginService } from './login/login.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    MenuComponent
-  ],
+  declarations: [AppComponent, LoginComponent, MenuComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule
-    
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
