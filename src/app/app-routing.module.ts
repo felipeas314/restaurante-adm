@@ -15,6 +15,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'restaurant',
+        loadChildren: './restaurant/restaurant.module#RestaurantModule'
       }
     ]
   }
@@ -24,4 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
