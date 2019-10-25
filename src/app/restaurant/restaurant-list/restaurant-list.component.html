@@ -1,1 +1,76 @@
-<h1>Restaurant list</h1>
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6"></div>
+    </div>
+  </div>
+</section>
+<div>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Restaurantes</h3>
+      <div class="card-tools">
+        <ul class="pagination pagination-sm float-right">
+          <a
+            routerLink="/restaurant/form"
+            class="btn btn-block btn-primary btn-sm"
+          >
+            Adicionar
+          </a>
+        </ul>
+      </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">Nome</th>
+            <th class="text-center">CNPJ</th>
+            <th class="text-center">Cidade</th>
+            <th class="text-center">Estado</th>
+            <th class="text-center">Remover</th>
+            <th class="text-center">Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let restaurant of restaurants">
+            <td class="text-center">{{ restaurant.name }}</td>
+            <td class="text-center">{{ restaurant.cnpj }}</td>
+            <td class="text-center">{{ restaurant.city }}</td>
+            <td class="text-center">{{ restaurant.state }}</td>
+            <td style="width: 5%;">
+              <div class="text-center">
+                <button
+                  class="btn btn-block btn-danger btn-sm"
+                  (click)="delete(restaurant.id)"
+                >
+                  <i class="fas fa-trash "></i>
+                </button>
+              </div>
+            </td>
+            <td style="width: 5%;">
+              <div>
+                <a
+                  class="btn btn-block btn-warning btn-sm"
+                  [routerLink]="['/restaurant/form', restaurant.id]"
+                >
+                  <i class="fas fa-pen-square"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer clearfix">
+      <ul class="pagination pagination-sm m-0 float-right">
+        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- /.card -->
+</div>

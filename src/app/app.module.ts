@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
+import { TokenInterceptor } from './auth/token-interceptor';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, MenuComponent],
@@ -18,7 +19,10 @@ import { LoginService } from './login/login.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [LoginService],
+  providers: [
+    LoginService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

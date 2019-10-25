@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'form',
     component: RestaurantFormComponent
+  },
+  {
+    path: 'form/:id',
+    component: RestaurantFormComponent
   }
 ];
 
