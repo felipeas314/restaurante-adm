@@ -15,10 +15,17 @@ export class TokenInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const dupReq = req.clone({
-      headers: req.headers.set('auth-token', localStorage.getItem('token'))
-    });
-    return next.handle(dupReq);
+    console.log(localStorage.getItem('token'));
+
+    if (localStorage.getItem('token')) {
+      const dupReq = req.clone({
+        setHeaders: { authorization: localStorage.getItem('token') }
+      });
+      return next.handle(dupReq);
+    } else {
+    }
+
+    return next.handle(req);
   }
 }
 
