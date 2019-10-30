@@ -23,9 +23,9 @@ export class TokenInterceptor implements HttpInterceptor {
       });
       return next.handle(dupReq);
     } else {
+      return next.handle(req);
     }
 
-    return next.handle(req);
   }
 }
 

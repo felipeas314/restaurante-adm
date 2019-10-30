@@ -1,0 +1,74 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6"></div>
+    </div>
+  </div>
+</section>
+<div>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Produtos</h3>
+      <div class="card-tools">
+        <ul class="pagination pagination-sm float-right">
+          <a
+            routerLink="/product/form"
+            class="btn btn-block btn-primary btn-sm"
+          >
+            Adicionar
+          </a>
+        </ul>
+      </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Descrição</th>
+            <th class="text-center">Preço</th>
+            <th class="text-center">Remover</th>
+            <th class="text-center">Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td class="text-center">{{ product.name }}</td>
+            <td class="text-center">{{ product.description }}</td>
+            <td class="text-center">{{ product.price }}</td>
+            <td style="width: 5%;">
+              <div class="text-center">
+                <button
+                  class="btn btn-block btn-danger btn-sm"
+                  (click)="delete(product.id)"
+                >
+                  <i class="fas fa-trash "></i>
+                </button>
+              </div>
+            </td>
+            <td style="width: 5%;">
+              <div>
+                <a
+                  class="btn btn-block btn-warning btn-sm"
+                  [routerLink]="['/product/form', product.id]"
+                >
+                  <i class="fas fa-pen-square"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer clearfix">
+      <ul class="pagination pagination-sm m-0 float-right">
+        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- /.card -->
+</div>
