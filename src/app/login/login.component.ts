@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         console.log(response);
         localStorage.setItem('token', response.token);
+        localStorage.setItem('role', response.role);
+        localStorage.setItem('user', response.user);
         this.router.navigate(['/']);
       },
       error => {

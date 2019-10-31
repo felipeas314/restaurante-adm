@@ -161,35 +161,35 @@
           >
             <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
-            <li class="nav-item">
+            <li *ngIf="role == 'ADMIN'" class="nav-item">
               <a routerLink="/restaurant/list" class="nav-link">
                 <p>
                   Restaurante
                 </p>
               </a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="role == 'MANAGER'" class="nav-item">
               <a routerLink="/product/list" class="nav-link">
                 <p>
                   Produto
                 </p>
               </a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="role == 'ADMIN'" class="nav-item">
               <a href="pages/widgets.html" class="nav-link">
                 <p>
                   Campanha
                 </p>
               </a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="role == 'ADMIN'" class="nav-item">
               <a href="pages/widgets.html" class="nav-link">
                 <p>
                   Propaganda
                 </p>
               </a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="role == 'ADMIN'" class="nav-item">
               <a href="pages/widgets.html" class="nav-link">
                 <p>
                   Evento
